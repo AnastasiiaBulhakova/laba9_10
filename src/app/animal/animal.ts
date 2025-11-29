@@ -24,11 +24,44 @@ export class AnimalComponent {
   res3 = '';
 
   calc() {
-    const an = new Animal(this.name, this.h ?? 0, this.k ?? 0);
-    const cat = new Cat(this.catName, this.catHeight ?? 0, this.breed);
+    //  тварини
+    if (!this.name.trim()) {
+      this.res1 = "Помилка: введіть кличку тварини!";
+      return;
+    }
+
+    if (this.h === null || this.h <= 0) {
+      this.res1 = "Помилка: ріст тварини має бути > 0!";
+      return;
+    }
+
+    if (this.k === null || this.k <= 0) {
+      this.res1 = "Помилка: коефіцієнт k має бути > 0!";
+      return;
+    }
+
+    //  кішки
+    if (!this.catName.trim()) {
+      this.res2 = "Помилка: введіть кличку кішки!";
+      return;
+    }
+
+    if (this.catHeight === null || this.catHeight <= 0) {
+      this.res2 = "Помилка: ріст кішки має бути > 0!";
+      return;
+    }
+
+    if (!this.breed.trim()) {
+      this.res3 = "Помилка: введіть породу кішки!";
+      return;
+    }
+
+    const an = new Animal(this.name, this.h, this.k);
+    const cat = new Cat(this.catName, this.catHeight, this.breed);
 
     this.res1 = `Тварина: ${an.name}, вага (кг): ${an.weightKg().toFixed(3)}`;
     this.res2 = `Кішка: ${cat.name}, вага (г): ${cat.weightGr().toFixed(1)}`;
     this.res3 = `Порода кішки: ${cat.breed}`;
   }
+
 }
