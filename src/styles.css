@@ -20,8 +20,14 @@ h3 {
     font-weight: 800
 }
 
+h4 {
+    font-size: clamp(15px, 2.5vw, 35px);
+    font-weight: 800
+}
+
 p,
-a {
+a,
+label {
     font-size: clamp(15px, 2vw, 40px);
     font-weight: 500;
 }

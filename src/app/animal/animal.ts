@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Animal } from '../Class/animal';
 import { Cat } from '../Class/cat';
+import { Dog } from '../Class/dog';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -18,10 +19,15 @@ export class AnimalComponent {
   catName = '';
   catHeight: number | null = null;
   breed = '';
+  dogName = '';
+  dogHeight: number | null = null;
+  dogbreed = '';
 
   res1 = '';
   res2 = '';
   res3 = '';
+  res4 = '';
+  res5 = '';
 
   calc() {
     //  тварини
@@ -56,12 +62,31 @@ export class AnimalComponent {
       return;
     }
 
+
+    if (!this.dogName.trim()) {
+      this.res2 = "Помилка: введіть кличку собака!";
+      return;
+    }
+
+    if (this.dogHeight === null || this.catHeight <= 0) {
+      this.res2 = "Помилка: ріст собаки має бути > 0!";
+      return;
+    }
+
+    if (!this.dogbreed.trim()) {
+      this.res3 = "Помилка: введіть породу собаки!";
+      return;
+    }
+
     const an = new Animal(this.name, this.h, this.k);
     const cat = new Cat(this.catName, this.catHeight, this.breed);
+    const dog = new Dog(this.dogName, this.dogHeight, this.dogbreed);
 
     this.res1 = `Тварина: ${an.name}, вага (кг): ${an.weightKg().toFixed(3)}`;
     this.res2 = `Кішка: ${cat.name}, вага (г): ${cat.weightGr().toFixed(1)}`;
     this.res3 = `Порода кішки: ${cat.breed}`;
+    this.res4 = `Собака: ${cat.name}, вага (г): ${cat.weightGr().toFixed(1)}`;
+    this.res5 = `Порода собака: ${cat.breed}`;
   }
 
 }

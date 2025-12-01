@@ -1,0 +1,29 @@
+<section class="container">
+    <p>Завдання: Вивести прізвища, що починаються з введеної літери.</p>
+
+    <div class="search-box">
+        <label>Введіть літеру: </label>
+        <input type="text" [(ngModel)]="inputLetter" maxlength="1" placeholder="Літера" class="input-field">
+        <button (click)="search()" class="btn">Пошук</button>
+    </div>
+
+    <h4>Всі прізвища:</h4>
+    <div class="names-list">
+        <span *ngFor="let name of arrayOne.surnames" class="surname-item">
+            {{ name }}
+        </span>
+    </div>
+
+    <h4>Результат пошуку:</h4>
+    <div *ngIf="arrayOne.filteredSurnames.length > 0; else noResult">
+        <div class="names-list">
+            <span *ngFor="let name of arrayOne.filteredSurnames" class="surname-item result">
+                {{ name }}
+            </span>
+        </div>
+    </div>
+
+    <ng-template #noResult>
+        <p class="no-result">Прізвищ на таку літеру не знайдено або пошук ще не виконано.</p>
+    </ng-template>
+</section>

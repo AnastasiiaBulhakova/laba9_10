@@ -1,0 +1,20 @@
+<section class="container">
+
+    <p>Завдання: Матриця 10x7. Сума елементів з непарними індексами (i та j).</p>
+
+    <button (click)="generateAndCalc()">Згенерувати та обчислити</button>
+
+    <div *ngIf="arrayTwo.a.length > 0">
+        <h3>Згенерована матриця:</h3>
+        <table>
+            <tr *ngFor="let row of arrayTwo.a; let i = index">
+                <td *ngFor="let val of row; let j = index" [class.highlight]="i % 2 !== 0 && j % 2 !== 0">
+                    {{ val }}
+                </td>
+            </tr>
+        </table>
+
+        <h3>Результат:</h3>
+        <p>Сума елементів з непарними індексами: <strong>{{ arrayTwo.sumOddIndices }}</strong></p>
+    </div>
+</section>

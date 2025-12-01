@@ -24,6 +24,17 @@
         Порода:<br>
         <input [(ngModel)]="breed">
     </div>
+    <div class="input-block">
+        <h4>Собака</h4>
+        Кличка:<br>
+        <input [(ngModel)]="dogName">
+
+        Ріст (м):<br>
+        <input type="number" step="0.01" [(ngModel)]="dogHeight">
+
+        Порода:<br>
+        <input [(ngModel)]="dogbreed">
+    </div>
 </div>
 
 <button (click)="calc()">Розрахувати</button>
@@ -34,4 +45,6 @@
     <p>{{ res1 }}</p>
     <p>{{ res2 }}</p>
     <p>{{ res3 }}</p>
+    <p>{{ res4 }}</p>
+    <p>{{ res5 }}</p>
 </div>
